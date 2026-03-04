@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="MedLife Klinika Toshkent — malakali shifokorlar, zamonaviy uskunalar, tez navbat. Onlayn ro'yxatdan o'ting."/>
+  <meta name="keywords" content="klinika toshkent, shifokor, tibbiy markaz, navbat olish, tashxis, davolash toshkent"/>
+  <title>MedLife Klinika — Toshkent</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue:   #0a5c8a;
+      --lblue:  #1a7ab8;
+      --sky:    #e8f4fd;
+      --mint:   #e8f8f4;
+      --teal:   #0d9488;
+      --dark:   #0f1f2e;
+      --mid:    #2d4a63;
+      --muted:  #6b8fa8;
+      --border: #ddeaf4;
+      --white:  #ffffff;
+      --bg:     #f6fafd;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--dark); overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 64px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 6vw;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 20px rgba(10,92,138,0.06);
+    }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo-icon { width: 36px; height: 36px; background: var(--blue); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .logo-text { font-size: 18px; font-weight: 800; color: var(--dark); }
+    .logo-text span { color: var(--blue); }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; cursor: pointer; transition: color .2s; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-cta { background: var(--blue); color: #fff; font-size: 13px; font-weight: 700; padding: 10px 24px; border-radius: 8px; text-decoration: none; transition: background .2s; }
+    .nav-cta:hover { background: var(--lblue); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; padding-top: 64px;
+      background: linear-gradient(135deg, #f0f7ff 0%, #e8f4fd 40%, #f0fdf9 100%);
+      display: grid; grid-template-columns: 1.1fr 0.9fr;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -100px; right: -100px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(10,92,138,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-left { padding: 80px 5vw 80px 8vw; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--sky); border: 1px solid var(--border);
+      color: var(--blue); font-size: 11px; font-weight: 700;
+      letter-spacing: 1px; padding: 6px 14px; border-radius: 999px;
+      margin-bottom: 24px; width: fit-content;
+    }
+    .hb-dot { width: 6px; height: 6px; background: var(--teal); border-radius: 50%; animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .hero h1 {
+      font-size: clamp(40px, 5vw, 72px); font-weight: 800;
+      line-height: 1.0; letter-spacing: -1.5px; color: var(--dark); margin-bottom: 20px;
+    }
+    .hero h1 em { font-family: 'Lora', serif; font-style: italic; color: var(--blue); }
+    .hero-p { font-size: 16px; color: var(--muted); line-height: 1.8; max-width: 440px; margin-bottom: 40px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 52px; }
+    .btn-blue { background: var(--blue); color: #fff; font-weight: 700; font-size: 14px; padding: 14px 36px; border-radius: 10px; text-decoration: none; cursor: pointer; transition: background .2s, box-shadow .2s; }
+    .btn-blue:hover { background: var(--lblue); box-shadow: 0 8px 28px rgba(10,92,138,0.25); }
+    .btn-outline { border: 1.5px solid var(--border); color: var(--mid); font-weight: 600; font-size: 14px; padding: 14px 36px; border-radius: 10px; text-decoration: none; cursor: pointer; background: var(--white); transition: border-color .2s; }
+    .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
+    .hero-quick { display: flex; gap: 20px; flex-wrap: wrap; }
+    .hq-item { display: flex; align-items: center; gap: 10px; padding: 12px 18px; background: var(--white); border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 2px 12px rgba(10,92,138,0.05); }
+    .hq-icon { font-size: 20px; }
+    .hq-label { font-size: 11px; color: var(--muted); }
+    .hq-val { font-size: 14px; font-weight: 700; color: var(--dark); }
+
+    .hero-right { display: flex; align-items: center; justify-content: center; padding: 60px 40px; position: relative; z-index: 1; }
+    .hero-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; width: 100%; max-width: 400px; }
+    .hc-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 22px 18px; box-shadow: 0 4px 20px rgba(10,92,138,0.06); transition: transform .3s, box-shadow .3s; cursor: pointer; }
+    .hc-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(10,92,138,0.1); }
+    .hc-card:nth-child(2) { margin-top: 20px; }
+    .hc-card:nth-child(4) { margin-top: 20px; }
+    .hc-icon { font-size: 28px; margin-bottom: 10px; }
+    .hc-title { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 3px; }
+    .hc-sub { font-size: 11px; color: var(--muted); }
+
+    /* STRIP */
+    .strip { background: var(--blue); padding: 14px 6vw; display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; }
+    .strip-item { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px; }
+    .strip-item strong { color: #fff; }
+
+    /* SEC */
+    .sec { padding: 88px 7vw; }
+    .sec-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+    .sec-h { font-size: clamp(30px, 3.5vw, 50px); font-weight: 800; letter-spacing: -1px; line-height: 1.05; margin-bottom: 14px; }
+    .sec-p { font-size: 15px; color: var(--muted); line-height: 1.8; max-width: 500px; }
+
+    /* XIZMATLAR */
+    #xizmat { background: var(--white); }
+    .xizmat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 52px; }
+    .xz-card { border-radius: 14px; padding: 28px 22px; border: 1.5px solid var(--border); background: var(--bg); transition: transform .3s, box-shadow .3s, border-color .3s; cursor: pointer; }
+    .xz-card:hover { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(10,92,138,0.08); border-color: var(--blue); }
+    .xz-icon { width: 52px; height: 52px; border-radius: 12px; background: var(--sky); display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 16px; }
+    .xz-name { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+    .xz-desc { font-size: 12px; color: var(--muted); line-height: 1.65; }
+
+    /* SHIFOKORLAR */
+    #shifokor { background: var(--bg); }
+    .doc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 52px; }
+    .doc-card { background: var(--white); border-radius: 16px; overflow: hidden; border: 1px solid var(--border); transition: transform .3s, box-shadow .3s; }
+    .doc-card:hover { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(10,92,138,0.08); }
+    .doc-img { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 64px; }
+    .di1{background:#e8f4fd} .di2{background:#e8f8f4} .di3{background:#fdf0e8} .di4{background:#f0e8fd}
+    .doc-body { padding: 18px; }
+    .doc-spec { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 6px; }
+    .doc-name { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+    .doc-exp { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+    .doc-btn { display: block; text-align: center; background: var(--sky); color: var(--blue); font-size: 12px; font-weight: 700; padding: 10px; border-radius: 8px; cursor: pointer; transition: background .2s; text-decoration: none; }
+    .doc-btn:hover { background: var(--blue); color: #fff; }
+
+    /* NAVBAT */
+    #navbat { background: var(--blue); }
+    .navbat-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .navbat-left .sec-h { color: #fff; }
+    .navbat-left .sec-p { color: rgba(255,255,255,.5); margin-bottom: 40px; }
+    .navbat-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .ns-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; padding: 22px; }
+    .ns-num { font-size: 36px; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 4px; }
+    .ns-lbl { font-size: 12px; color: rgba(255,255,255,.45); }
+    .navbat-right { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 40px 36px; }
+    .navbat-right h3 { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .navbat-right p { font-size: 14px; color: rgba(255,255,255,.45); margin-bottom: 28px; }
+    .nav-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; }
+    .nav-opt { background: rgba(255,255,255,.06); border: 1.5px solid rgba(255,255,255,.1); border-radius: 10px; padding: 14px; text-align: center; cursor: pointer; transition: all .2s; }
+    .nav-opt:hover, .nav-opt.active { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.4); }
+    .no-icon { font-size: 20px; margin-bottom: 5px; }
+    .no-name { font-size: 12px; font-weight: 600; color: #fff; }
+    .nav-btns { display: flex; flex-direction: column; gap: 10px; }
+    .nbtn-tg { background: #229ED9; color: #fff; font-weight: 700; font-size: 13px; padding: 14px; text-align: center; text-decoration: none; display: block; border-radius: 10px; transition: opacity .2s; }
+    .nbtn-tg:hover { opacity: .87; }
+    .nbtn-tel { border: 1.5px solid rgba(255,255,255,.2); color: #fff; font-weight: 600; font-size: 13px; padding: 14px; text-align: center; text-decoration: none; display: block; border-radius: 10px; transition: border-color .2s; }
+    .nbtn-tel:hover { border-color: rgba(255,255,255,.6); }
+
+    /* SHARHLAR */
+    #sharh { background: var(--white); }
+    .rev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 52px; }
+    .rev-card { background: var(--bg); border-radius: 14px; padding: 28px 24px; border: 1.5px solid var(--border); transition: transform .3s; }
+    .rev-card:hover { transform: translateY(-4px); }
+    .rev-stars { color: #f59e0b; font-size: 13px; margin-bottom: 12px; }
+    .rev-text { font-family: 'Lora', serif; font-style: italic; font-size: 15px; line-height: 1.65; color: var(--mid); margin-bottom: 18px; }
+    .rev-name { font-size: 13px; font-weight: 700; color: var(--dark); }
+    .rev-role { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    /* MANZIL */
+    #manzil { background: var(--bg); }
+    .manzil-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .manzil-info h3 { font-size: 32px; font-weight: 800; margin-bottom: 28px; }
+    .mi-row { display: flex; gap: 14px; margin-bottom: 18px; }
+    .mi-icon-box { width: 42px; height: 42px; background: var(--sky); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .mi-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 3px; }
+    .mi-val { font-size: 14px; font-weight: 600; color: var(--dark); line-height: 1.5; }
+    .map-box { background: var(--sky); border: 1px solid var(--border); border-radius: 16px; height: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+    .map-box span:first-child { font-size: 48px; }
+    .map-box span:last-child { font-size: 14px; color: var(--muted); }
+
+    footer { background: var(--dark); padding: 40px 7vw; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+    .f-logo { font-size: 18px; font-weight: 800; color: #fff; }
+    .f-logo span { color: #60a5fa; }
+    .f-links { display: flex; gap: 22px; flex-wrap: wrap; }
+    .f-links a { font-size: 12px; color: rgba(255,255,255,.3); text-decoration: none; cursor: pointer; transition: color .2s; }
+    .f-links a:hover { color: #fff; }
+    footer p { font-size: 12px; color: rgba(255,255,255,.15); }
+    .wm { background: #07131d; padding: 12px 7vw; text-align: center; }
+    .wm p { font-size: 11px; color: rgba(255,255,255,.15); }
+    .wm a { color: rgba(10,92,138,.5); text-decoration: none; }
+
+    @media(max-width:1024px){
+      .hero,.navbat-inner,.manzil-grid{grid-template-columns:1fr}
+      .hero-right{display:none}
+      .xizmat-grid,.doc-grid{grid-template-columns:1fr 1fr}
+      .rev-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:640px){
+      .nav-links{display:none}
+      .xizmat-grid,.doc-grid,.rev-grid{grid-template-columns:1fr}
+      .navbat-stats,.nav-opts{grid-template-columns:1fr 1fr}
+      footer{flex-direction:column;text-align:center}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><div class="logo-icon">🏥</div><div class="logo-text">Med<span>Life</span></div></div>
+  <div class="nav-links">
+    <a onclick="goto('xizmat')">Xizmatlar</a>
+    <a onclick="goto('shifokor')">Shifokorlar</a>
+    <a onclick="goto('navbat')">Navbat</a>
+    <a onclick="goto('manzil')">Manzil</a>
+  </div>
+  <a onclick="goto('navbat')" class="nav-cta">📅 Navbat Olish</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge"><span class="hb-dot"></span> Toshkent — 2017 yildan</div>
+    <h1>Sog'ligingiz —<br/><em>bizning</em><br/>mas'uliyatimiz</h1>
+    <p class="hero-p">Malakali shifokorlar, zamonaviy uskunalar va iliq muhit. Tez navbat, aniq tashxis, samarali davolash.</p>
+    <div class="hero-btns">
+      <span class="btn-blue" onclick="goto('navbat')">📅 Navbat Olish</span>
+      <span class="btn-outline" onclick="goto('xizmat')">Xizmatlarni Ko'rish</span>
+    </div>
+    <div class="hero-quick">
+      <div class="hq-item"><div class="hq-icon">⏱️</div><div><div class="hq-label">Kutish vaqti</div><div class="hq-val">15 min</div></div></div>
+      <div class="hq-item"><div class="hq-icon">👨‍⚕️</div><div><div class="hq-label">Shifokorlar</div><div class="hq-val">20+</div></div></div>
+      <div class="hq-item"><div class="hq-icon">🕐</div><div><div class="hq-label">Ish vaqti</div><div class="hq-val">8:00–20:00</div></div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-cards">
+      <div class="hc-card" onclick="goto('xizmat')"><div class="hc-icon">🫀</div><div class="hc-title">Kardiologiya</div><div class="hc-sub">Yurak tekshiruvi</div></div>
+      <div class="hc-card" onclick="goto('xizmat')"><div class="hc-icon">🦷</div><div class="hc-title">Stomatologiya</div><div class="hc-sub">Tish davolash</div></div>
+      <div class="hc-card" onclick="goto('xizmat')"><div class="hc-icon">👁️</div><div class="hc-title">Oftalmologiya</div><div class="hc-sub">Ko'z tekshiruvi</div></div>
+      <div class="hc-card" onclick="goto('xizmat')"><div class="hc-icon">🧠</div><div class="hc-title">Nevrologiya</div><div class="hc-sub">Nerv tizimi</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="strip-item">✅ <strong>20+</strong> mutaxassis shifokor</div>
+  <div class="strip-item">⏱️ Kutish: <strong>15 daqiqa</strong></div>
+  <div class="strip-item">🔬 <strong>Zamonaviy</strong> laboratoriya</div>
+  <div class="strip-item">📞 <strong>24/7</strong> maslahat</div>
+</div>
+
+<section class="sec" id="xizmat">
+  <div class="sec-eyebrow">Xizmatlar</div>
+  <h2 class="sec-h">Tibbiy Yo'nalishlar</h2>
+  <p class="sec-p">Barcha asosiy tibbiy yo'nalishlar bo'yicha malakali mutaxassislar xizmatingizda.</p>
+  <div class="xizmat-grid">
+    <div class="xz-card"><div class="xz-icon">🫀</div><div class="xz-name">Kardiologiya</div><div class="xz-desc">Yurak va qon tomir kasalliklari, EKG, EXOKARDIO</div></div>
+    <div class="xz-card"><div class="xz-icon">🦷</div><div class="xz-name">Stomatologiya</div><div class="xz-desc">Tish davolash, protez, implantatsiya</div></div>
+    <div class="xz-card"><div class="xz-icon">👁️</div><div class="xz-name">Oftalmologiya</div><div class="xz-desc">Ko'z tekshiruvi, ko'zoynak, lazer davolash</div></div>
+    <div class="xz-card"><div class="xz-icon">🧠</div><div class="xz-name">Nevrologiya</div><div class="xz-desc">Bosh og'rig'i, umurtqa, uyqu buzilishi</div></div>
+    <div class="xz-card"><div class="xz-icon">🔬</div><div class="xz-name">Laboratoriya</div><div class="xz-desc">Qon tahlili, sidik, bioximiya — tez natija</div></div>
+    <div class="xz-card"><div class="xz-icon">🫁</div><div class="xz-name">Pulmonologiya</div><div class="xz-desc">Nafas yo'llari, bronxit, astma davolash</div></div>
+    <div class="xz-card"><div class="xz-icon">🩻</div><div class="xz-name">UZI & Rentgen</div><div class="xz-desc">Zamonaviy tasviriy tashxislash usullari</div></div>
+    <div class="xz-card"><div class="xz-icon">👶</div><div class="xz-name">Pediatriya</div><div class="xz-desc">Bolalar shifokorlari — 0 yoshdan 18 yoshgacha</div></div>
+  </div>
+</section>
+
+<section class="sec" id="shifokor">
+  <div class="sec-eyebrow">Shifokorlar</div>
+  <h2 class="sec-h">Malakali Jamoamiz</h2>
+  <p class="sec-p">Har bir shifokorimiz xalqaro sertifikatlarga ega va doimiy malaka oshirib boradi.</p>
+  <div class="doc-grid">
+    <div class="doc-card"><div class="doc-img di1">👨‍⚕️</div><div class="doc-body"><div class="doc-spec">Kardiolog</div><div class="doc-name">Dr. Alisher Karimov</div><div class="doc-exp">18 yil tajriba</div><a onclick="goto('navbat')" class="doc-btn">Navbat Olish</a></div></div>
+    <div class="doc-card"><div class="doc-img di2">👩‍⚕️</div><div class="doc-body"><div class="doc-spec">Stomatolog</div><div class="doc-name">Dr. Nilufar Yusupova</div><div class="doc-exp">12 yil tajriba</div><a onclick="goto('navbat')" class="doc-btn">Navbat Olish</a></div></div>
+    <div class="doc-card"><div class="doc-img di3">👨‍⚕️</div><div class="doc-body"><div class="doc-spec">Nevropatolog</div><div class="doc-name">Dr. Bobur Rashidov</div><div class="doc-exp">15 yil tajriba</div><a onclick="goto('navbat')" class="doc-btn">Navbat Olish</a></div></div>
+    <div class="doc-card"><div class="doc-img di4">👩‍⚕️</div><div class="doc-body"><div class="doc-spec">Pediatr</div><div class="doc-name">Dr. Malika Tosheva</div><div class="doc-exp">10 yil tajriba</div><a onclick="goto('navbat')" class="doc-btn">Navbat Olish</a></div></div>
+  </div>
+</section>
+
+<section class="sec" id="navbat">
+  <div class="navbat-inner">
+    <div class="navbat-left">
+      <div class="sec-eyebrow">Navbat</div>
+      <h2 class="sec-h" style="color:#fff">Onlayn Navbat<br/>Oling</h2>
+      <p class="sec-p">Telegram yoki telefon orqali navbat oling — 15 daqiqadan ko'p kutmaysiz.</p>
+      <div class="navbat-stats">
+        <div class="ns-card"><div class="ns-num">20+</div><div class="ns-lbl">Mutaxassis</div></div>
+        <div class="ns-card"><div class="ns-num">15 min</div><div class="ns-lbl">Kutish vaqti</div></div>
+        <div class="ns-card"><div class="ns-num">50K+</div><div class="ns-lbl">Bemor</div></div>
+        <div class="ns-card"><div class="ns-num">7 yil</div><div class="ns-lbl">Tajriba</div></div>
+      </div>
+    </div>
+    <div class="navbat-right">
+      <h3>Yo'nalish Tanlang</h3>
+      <p>Kerakli mutaxassisni tanlang va navbat oling.</p>
+      <div class="nav-opts">
+        <div class="nav-opt active" onclick="selNav(this)"><div class="no-icon">🫀</div><div class="no-name">Kardiolog</div></div>
+        <div class="nav-opt" onclick="selNav(this)"><div class="no-icon">🦷</div><div class="no-name">Stomatolog</div></div>
+        <div class="nav-opt" onclick="selNav(this)"><div class="no-icon">👁️</div><div class="no-name">Oftalmolog</div></div>
+        <div class="nav-opt" onclick="selNav(this)"><div class="no-icon">👶</div><div class="no-name">Pediatr</div></div>
+      </div>
+      <div class="nav-btns">
+        <a href="https://t.me/medlife_uz" target="_blank" class="nbtn-tg">✈️ Telegramda Navbat Olish</a>
+        <a href="tel:+998711234567" class="nbtn-tel">📞 +998 71 123 45 67</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="sharh">
+  <div class="sec-eyebrow">Bemorlar Fikri</div>
+  <h2 class="sec-h">Ular Nima Deydi</h2>
+  <div class="rev-grid">
+    <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Dr. Karimov menga juda tez va aniq tashxis qo'ydi. Navbat ham 10 daqiqadan oshmasdi. Rahmat!"</div><div class="rev-name">Sardor Mirzayev</div><div class="rev-role">Toshkent</div></div>
+    <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Bolam uchun pediatrga keldim — shifokor juda mehribon va bilimli. Muolaja zo'r natija berdi."</div><div class="rev-name">Zulfiya Hasanova</div><div class="rev-role">Toshkent</div></div>
+    <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Laboratoriya natijalari 2 soatda tayyor bo'ldi. Klinika juda toza va zamonaviy. Tavsiya qilaman!"</div><div class="rev-name">Jasur Qodirov</div><div class="rev-role">Toshkent</div></div>
+  </div>
+</section>
+
+<section class="sec" id="manzil">
+  <div class="manzil-grid">
+    <div class="manzil-info">
+      <h3>Bizni Toping</h3>
+      <div class="mi-row"><div class="mi-icon-box">📍</div><div><div class="mi-label">Manzil</div><div class="mi-val">Toshkent sh., Mirzo Ulug'bek tumani,<br/>Mustaqillik ko'chasi 45</div></div></div>
+      <div class="mi-row"><div class="mi-icon-box">📞</div><div><div class="mi-label">Telefon</div><div class="mi-val">+998 71 123 45 67</div></div></div>
+      <div class="mi-row"><div class="mi-icon-box">🕐</div><div><div class="mi-label">Ish Vaqti</div><div class="mi-val">Dushanba–Shanba: 8:00–20:00<br/>Yakshanba: 9:00–15:00</div></div></div>
+      <div class="mi-row"><div class="mi-icon-box">✈️</div><div><div class="mi-label">Telegram</div><div class="mi-val">@medlife_uz</div></div></div>
+    </div>
+    <div class="map-box"><span>🗺️</span><span>Mirzo Ulug'bek, Toshkent</span></div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">Med<span>Life</span> Klinika</div>
+  <div class="f-links">
+    <a onclick="goto('xizmat')">Xizmatlar</a>
+    <a onclick="goto('shifokor')">Shifokorlar</a>
+    <a onclick="goto('navbat')">Navbat</a>
+    <a onclick="goto('manzil')">Manzil</a>
+  </div>
+  <p>© 2025 MedLife Klinika</p>
+</footer>
+<div class="wm"><p>Sayt <a href="https://t.me/hawebsolutions1">HA Web Solutions</a> tomonidan yaratilgan</p></div>
+
+<script>
+  function goto(id){ const el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
+  function selNav(el){ document.querySelectorAll('.nav-opt').forEach(o=>o.classList.remove('active')); el.classList.add('active'); }
+  const obs=new IntersectionObserver(e=>{ e.forEach(x=>{ if(x.isIntersecting){x.target.style.opacity='1';x.target.style.transform='translateY(0)';} }); },{threshold:0.07});
+  document.querySelectorAll('.xz-card,.doc-card,.rev-card,.hc-card,.ns-card').forEach(el=>{ el.style.opacity='0'; el.style.transform='translateY(16px)'; el.style.transition='opacity .5s ease,transform .5s ease'; obs.observe(el); });
+</script>
+</body>
+</html>
